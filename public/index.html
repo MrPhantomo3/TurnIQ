@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+<title>TurnIQ</title>
+<script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth-compat.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-database-compat.js" defer></script>
+<script src="js/firebase-config.js" defer></script>
+<script src="js/app.js" defer></script>
+</head>
+<body>
+<button id="themeToggle" class="theme-btn">🌙</button>
+
+<main id="authView" class="view">
+  <h1>TurnIQ</h1>
+  <input id="email" type="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+  <div id="roleBox">
+    <label><input type="radio" name="role" value="ORG">ORG</label>
+    <label><input type="radio" name="role" value="PLAYER">Player</label>
+  </div>
+  <input id="orgKey" type="text" placeholder="ORG Key" class="hidden">
+  <button id="loginBtn">Login / Register</button>
+  <button id="googleBtn">Login with Google</button>
+</main>
+
+<main id="orgView" class="view hidden">
+  <h2>Create Tournament</h2>
+  <input id="tTitle" placeholder="Title">
+  <input id="tBanner" placeholder="Banner URL">
+  <select id="tType"><option>Solo</option><option>Duo</option><option>Squad</option></select>
+  <input id="tSlots" type="number" placeholder="Slots">
+  <input id="tEntry" type="number" placeholder="Entry Fee">
+  <input id="tPrize" type="text" placeholder="Prize Pool">
+  <input id="tStart" type="datetime-local">
+  <input id="tIdp" type="datetime-local">
+  <button id="createBtn">Create</button>
+  <section id="orgList"></section>
+</main>
+
+<main id="playerView" class="view hidden">
+  <h2>Active Tournaments</h2>
+  <section id="playerList"></section>
+</main>
+
+<template id="tCard">
+  <article class="card">
+    <img class="b" />
+    <h3 class="ti"></h3>
+    <p class="de"></p>
+    <button class="regBtn">Register</button>
+  </article>
+</template>
+
+<template id="orgCard">
+  <article class="card">
+    <h3 class="ti"></h3>
+    <p class="de"></p>
+    <button class="chatBtn">Chat</button>
+    <section class="pl"></section>
+  </article>
+</template>
+
+<template id="chatBox">
+  <div class="chat">
+    <section class="msgs"></section>
+    <input class="msgIn">
+    <button class="sendBtn">Send</button>
+  </div>
+</template>
+</body>
+</html>
